@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Load .env if exists (with auto-export)
+if [ -f .env ]; then
+  set -a
+  source .env
+  set +a
+fi
+
+export WWWGROUP="${WWWGROUP:-$(id -g)}"
+export WWWUSER="${WWWUSER:-$(id -u)}"
+
+docker compose -f docker-compose.yml -f docker.override.yml "$@"

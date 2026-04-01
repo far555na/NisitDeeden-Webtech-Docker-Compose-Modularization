@@ -1,0 +1,14 @@
+services:
+    laravel-api:
+        networks:
+            - shared-network
+            
+    frontend:
+        networks:
+            - shared-network
+        environment:
+            - API_URL=http://laravel-api
+            
+networks:
+    shared-network:
+        name: nisit-deeden-network
