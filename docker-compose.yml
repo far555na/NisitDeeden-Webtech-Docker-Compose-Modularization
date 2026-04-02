@@ -3,5 +3,5 @@ name: nisit-deeden
 include:
     - path: NisitDeeden-Webtech-backend/compose.yaml
       env_file: NisitDeeden-Webtech-backend/.env
-    - path: p2-final-project-sprint-procrastinator-v2/docker-compose.yml
-      env_file: p2-final-project-sprint-procrastinator-v2/.env
+    - path: NisitDeeden-Webtech-frontend/docker-compose.yml
+      env_file: NisitDeeden-Webtech-frontend/.env
