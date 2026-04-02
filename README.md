@@ -79,7 +79,7 @@ chmod +x compose
 
 ./compose exec laravel-api composer install
 ./compose exec laravel-api php artisan key:generate   # generates APP_KEY and writes it to .env automatically
-./compose exec laravel-api php artisan migrate --seed
+./compose exec laravel-api php artisan migrate:fresh --seed
 ./compose exec laravel-api php artisan storage:link
 ```
 
