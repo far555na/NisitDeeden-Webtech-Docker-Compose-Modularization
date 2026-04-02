@@ -88,3 +88,50 @@ chmod +x compose
 ## Done
 
 Open **http://localhost:3000** in your browser.
+
+---
+## Notice
+
+All files in this project are sample data and are not accessible for direct viewing.  
+If file access is required, please upload the file to the backend storage at the following path:
+
+`storage/app/public/applications/dynamic_submissions/mock_file.pdf`
+
+---
+
+## Account Credentials & Roles
+
+| Email                      | Password  | Role (TH)            |
+|---------------------------|-----------|----------------------|
+| hana@example.com          | password  | นิสิต                |
+| comsci_head@ku.ac.th      | password  | หัวหน้าภาควิชา       |
+| assoc_dean_sci@ku.ac.th   | password  | รองคณบดี             |
+| sci_dean@ku.ac.th         | password  | คณบดี                |
+| committee@example.com     | password  | คณะกรรมการ           |
+| admin@example.com         | password  | กองพัฒนานิสิต        |
+
+---
+## Application Management Commands
+
+This document outlines the necessary background services for managing application lifecycles, real-time updates, and automated notifications.
+
+---
+
+### 1. Task Scheduling
+**Purpose:** Automatically closes application rounds once the expiration date and time have been reached.
+> ```bash
+> ./compose exec laravel-api php artisan schedule:work
+> ```
+
+### 2. Real-Time Broadcasting
+**Purpose:** Utilizes **Laravel Reverb** to push real-time status updates to the frontend, ensuring users see application changes instantly.
+> ```bash
+> ./compose exec laravel-api php artisan reverb:start --debug
+> ```
+
+### 3. Queue Management
+**Purpose:** Processes background jobs for email dispatch (e.g., Acceptance or Rejection notices) to ensure a seamless and responsive user experience.
+> ```bash
+> ./compose exec laravel-api php artisan queue:work
+> ```
+
